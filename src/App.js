@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef } from "react"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    const nameRef = useRef();
+    const emailRef = useRef()
+    const passwordRef = useRef()
+
+    function handleSubmit(e) {
+        e.preventDefault()
+
+    }
+
+    return (
+        <div className="container">
+            <form onSubmit={handleSubmit}>
+                <div className="input_group">
+                    <label>Name</label>
+                    <input type="text" ref={nameRef}/>
+                </div>
+                <div className="input_group">
+                    <label>Email</label>
+                    <input type="text" ref={emailRef}/>
+                </div>
+                <div className="input_group">
+                    <label>Password</label>
+                    <input type="password" ref={passwordRef}/>
+                </div>
+                <input type="submit"/>
+            </form>
+        </div>
+    )
 }
-
-export default App;
